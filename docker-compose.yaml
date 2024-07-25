@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  node-api:
+    build: .
+    container_name: node-api
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/app

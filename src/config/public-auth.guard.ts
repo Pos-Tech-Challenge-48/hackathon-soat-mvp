@@ -18,7 +18,6 @@ export class PublicAuthGuard implements CanActivate {
     if (!requestHeaders.authorization) {
       throw new UnauthorizedException();
     }
-    console.log(request.url);
 
     return true;
   }
