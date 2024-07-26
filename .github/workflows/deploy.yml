@@ -87,7 +87,11 @@ jobs:
             echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
 
-            ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
+            ls -la
+
+            ssh -i ~/.ssh/id_rsa $EC2_USER@$EC2_HOST << 'EOF'
+            echo "listing..."
+            ls -la
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_TOKEN }}
 
             docker stop hackaton-fiap || true
