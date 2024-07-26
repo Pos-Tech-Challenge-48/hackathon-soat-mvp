@@ -50,7 +50,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t hackaton-fiap:${{ needs.tag.outputs.tag }} .
+          docker build --platform linux/arm64 -t hackaton-fiap:${{ needs.tag.outputs.tag }} .
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -97,5 +97,5 @@ jobs:
             docker rm hackaton-fiap || true
 
             docker pull ${{ secrets.DOCKER_USERNAME }}/hackaton-fiap:${{ needs.tag.outputs.tag }}
-            docker run -d --platform linux/amd64 --name hackaton-fiap -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/hackaton-fiap:${{ needs.tag.outputs.tag }}
+            docker run -d --platform linux/arm64 --name hackaton-fiap -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/hackaton-fiap:${{ needs.tag.outputs.tag }}
             EOF
