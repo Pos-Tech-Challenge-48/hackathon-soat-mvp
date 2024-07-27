@@ -7,5 +7,3 @@ Ex: Add resource(s) | Remove resource(s) | Add info | Improve repo
 - [ ] I run the unit tests
 - [ ] I update the swagger if is a new feature
 - [ ] I test at postman
-
-## Evidences
